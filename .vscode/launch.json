@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type"   : "node",
+      "request": "launch",
+      "name"   : "Standard TS debugging",
+      "env": {
+        "TS_NODE_PROJECT"       : "../tsconfig.json",
+        "TS_NODE_TRANSPILE_ONLY": "true",
+        "FORCE_COLOR"           : "3"
+      },
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "--trace-warnings"
+      ],
+      "args": [
+        "${workspaceFolder}/src/main.ts"
+      ],
+      "sourceMaps"            : true,
+      "cwd"                   : "${workspaceRoot}/src/",
+      "internalConsoleOptions": "openOnSessionStart",
+      "outputCapture": "std"
+    }, {
+      "type"   : "node",
+      "request": "launch",
+      "name"   : "Launch current file",
+      "env": {
+        "TS_NODE_PROJECT"       : "tsconfig.json",
+        "TS_NODE_TRANSPILE_ONLY": "true",
+        "FORCE_COLOR"           : "3"
+      },
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "--trace-warnings"
+      ],
+      "args": [
+        "${relativeFile}"
+      ],
+      "sourceMaps"            : true,
+      "cwd"                   : "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}
