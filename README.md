@@ -7,7 +7,7 @@
   <img src="https://images.microbadger.com/badges/image/arunesh90/http-redis.svg" />
 </p>
 
-> Simple HTTP API server for a Redis instance, with built-in compression
+> Simple HTTP API server for a Redis instance, with built-in compression.
 
 ## Install & Usage
 
