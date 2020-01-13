@@ -22,7 +22,7 @@
 curl -X POST '127.0.0.1:8080/api/set/test' \
 --header 'Content-Type: application/json' \
 --data '{
-  "value": "test2",
+  "value": "test",
   "compression": "brotli"
 }'
 # OK
@@ -34,8 +34,6 @@ curl '127.0.0.1:8080/api/get/test'
 #   "value": "test"
 # }
 ```
-
-
 
 ### Docker
 ```sh
