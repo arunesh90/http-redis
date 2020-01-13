@@ -1,11 +1,17 @@
 import { app } from '../main'
 import { mainDB, callbackHandler } from '../db/redis'
-import { brotliCompressSync } from 'zlib'
+import zlib, { brotliCompressSync, BrotliOptions } from 'zlib'
 
 export interface RedisEntry {
   ttl?: number,
   compression?: 'brotli',
   value: string,
+}
+
+const brotliOptions: BrotliOptions = {
+  params: {
+    [zlib.constants.BROTLI_PARAM_QUALITY]: 3,
+  }
 }
 
 app.post('/api/set/:key', async (request, reply) => {
@@ -24,7 +30,7 @@ app.post('/api/set/:key', async (request, reply) => {
   // Compression
   switch (setBody.compression) {
     case 'brotli': {
-      const compressedBuffer = brotliCompressSync(Buffer.from(setValue))
+      const compressedBuffer = brotliCompressSync(Buffer.from(setValue), brotliOptions)
             setValue         = compressedBuffer.toString('base64')
       break
     }
