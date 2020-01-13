@@ -2,7 +2,7 @@ import { app } from '../main'
 import path from 'path'
 import WorkersController from '../workersController'
 
-const redisWorkers = new WorkersController(8, path.join(__dirname, './workerLoader.js'))
+const redisWorkers = new WorkersController(8, path.join(__dirname, '../workerLoader.js'))
 
 app.get('/api/get/:key', async (request, reply) => {
   const { key } = request.params
