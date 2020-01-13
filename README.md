@@ -22,8 +22,8 @@
 curl -X POST '127.0.0.1:8080/api/set/test' \
 --header 'Content-Type: application/json' \
 --data '{
-	"value": "test2",
-	"compression": "brotli"
+  "value": "test2",
+  "compression": "brotli"
 }'
 # OK
 
