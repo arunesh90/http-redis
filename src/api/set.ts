@@ -29,6 +29,8 @@ app.post('/api/set/:key', async (request, reply) => {
       break
     }
 
+    case undefined:
+      break
     default: {
       return reply.status(400).send('Unknown compression method')
     }
