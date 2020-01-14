@@ -1,12 +1,17 @@
+// Create cluster
 import 'dotenv/config'
-import fastify from 'fastify'
+import cluster from 'cluster'
+import os from 'os'
 
-export const app = fastify({
-  logger: false
-})
+if (process.env.DISABLE_CLUSTER !== "true" && cluster.isMaster) {
+  const numCPUs = os.cpus().length;
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork()
+  }
 
-// Load routes
-import './api/get'
-import './api/set'
-
-app.listen(Number(process.env.APP_PORT) || 8080)
+  cluster.on('exit', worker => {
+    console.log(`Worker ${worker.process.pid} died`)
+  })
+} else {
+  require('./initialize')
+}
