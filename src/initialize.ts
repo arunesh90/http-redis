@@ -5,8 +5,8 @@ export const app = fastify({
 })
 
 // Load routes
-import './api/get'
-import './api/set'
+import './lib/api/get'
+import './lib/api/set'
 
 const appPort = Number(process.env.APP_PORT) || 8080
 app.listen(appPort, (err) => {
