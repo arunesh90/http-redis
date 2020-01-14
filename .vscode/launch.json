@@ -21,7 +21,8 @@
       "sourceMaps"            : true,
       "cwd"                   : "${workspaceRoot}/src/",
       "internalConsoleOptions": "openOnSessionStart",
-      "outputCapture": "std"
+      "outputCapture": "std",
+      "autoAttachChildProcesses": true
     }, {
       "type"   : "node",
       "request": "launch",

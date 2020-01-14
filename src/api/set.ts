@@ -1,4 +1,4 @@
-import { app } from '../main'
+import { app } from '../initialize'
 import { mainDB, callbackHandler } from '../db/redis'
 import { brotliCompressSync } from 'zlib'
 

@@ -1,4 +1,4 @@
-import { app } from '../main'
+import { app } from '../initialize'
 import { mainDB } from '../db/redis'
 import { RedisEntry } from './set'
 import { brotliDecompressSync } from 'zlib'
