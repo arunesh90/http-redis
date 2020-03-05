@@ -1,9 +1,9 @@
-import { app } from '../../initialize'
 import { mainDB } from '../db/redis'
 import { RedisEntry } from './set'
 import { brotliDecompressSync } from 'zlib'
+import { RequestHandler } from 'fastify'
 
-app.get('/api/get/:key', async (request, reply) => {
+const getKeyRoute: RequestHandler = async (request, reply) => {
   const { key } = request.params
 
   if (!key) {
@@ -37,4 +37,6 @@ app.get('/api/get/:key', async (request, reply) => {
       value      : parsedEntry.value
     })
   })
-})
+}
+
+export default getKeyRoute

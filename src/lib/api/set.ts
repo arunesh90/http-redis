@@ -1,6 +1,6 @@
-import { app } from '../../initialize'
 import { mainDB, callbackHandler } from '../db/redis'
 import zlib, { brotliCompressSync, BrotliOptions } from 'zlib'
+import { RequestHandler } from 'fastify'
 
 export interface RedisEntry {
   ttl?: number,
@@ -10,11 +10,11 @@ export interface RedisEntry {
 
 const brotliOptions: BrotliOptions = {
   params: {
-    [zlib.constants.BROTLI_PARAM_QUALITY]: 3,
+    [zlib.constants.BROTLI_PARAM_QUALITY]: 4,
   }
 }
 
-app.post('/api/set/:key', async (request, reply) => {
+const setKeyRoute: RequestHandler = async (request, reply) => {
   const { key }             = request.params
   const setBody: RedisEntry = request.body
   let   setValue            = setBody.value
@@ -51,4 +51,6 @@ app.post('/api/set/:key', async (request, reply) => {
   } else {
     mainDB.SET(key, stringifiedBody, (err) => callbackHandler(err, reply))
   }
-})
+}
+
+export default setKeyRoute

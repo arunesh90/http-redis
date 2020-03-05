@@ -13,5 +13,5 @@ if (process.env.DISABLE_CLUSTER !== "true" && cluster.isMaster) {
     console.log(`Worker ${worker.process.pid} died`)
   })
 } else {
-  require('./initialize')
+  require('./lib/initialize')
 }
