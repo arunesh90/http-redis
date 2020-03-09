@@ -16,6 +16,7 @@
 * `REDIS_HOST` (optional): Hostname/ip of your Redis instance
 * `REDIS_PASS` (optional): Password of your Redis instance
 * `APP_PORT` (optional): App port
+* `AUTH_KEY` (optional): Requires all requests to have the `AUTH_KEY` value set on the `Authorization` header
 
 ```sh
 
