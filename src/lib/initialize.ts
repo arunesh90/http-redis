@@ -6,8 +6,6 @@ export const app = fastify({
 
 // Load router
 import './router'
-// import './api/get'
-// import './api/set'
 
 const appPort = Number(process.env.APP_PORT) || 8080
 app.listen(appPort, '0.0.0.0', (err) => {
