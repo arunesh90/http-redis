@@ -1,5 +1,5 @@
 # Build
-FROM node:13-alpine as build
+FROM node:14 as build
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN echo "Compiling TypeScript.." && yarn build
 RUN rm -rf ./node_modules && yarn --production
 
 # Final image
-FROM node:13-alpine
+FROM node:14
 
 WORKDIR /app/dist
 
