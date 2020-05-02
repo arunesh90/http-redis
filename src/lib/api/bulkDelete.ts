@@ -1,5 +1,5 @@
-import { RequestHandler } from 'fastify';
-import { mainDB, callbackHandler } from '../db/redis';
+import { RequestHandler } from 'fastify'
+import { mainDB, callbackHandler } from '../db/redis'
 
 const bulkDeleteKeyRoute: RequestHandler = async (request, reply) => {
   const { keys } = request.query

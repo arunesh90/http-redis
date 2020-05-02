@@ -4,7 +4,7 @@ import cluster from 'cluster'
 import os from 'os'
 
 if (process.env.DISABLE_CLUSTER !== "true" && cluster.isMaster) {
-  const numCPUs = os.cpus().length;
+  const numCPUs = os.cpus().length
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork()
   }
