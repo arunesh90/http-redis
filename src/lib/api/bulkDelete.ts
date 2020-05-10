@@ -5,7 +5,7 @@ const bulkDeleteKeyRoute: RequestHandler = async (request, reply) => {
   const { keys } = request.query
 
   if (!keys) {
-    return reply.send('Missing key')
+    return reply.send('Missing keys')
   }
 
   mainDB.DEL(keys.split(','), async (err) => callbackHandler(err, reply))
