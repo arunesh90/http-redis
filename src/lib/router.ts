@@ -28,7 +28,7 @@ const apiRouter = async (app: FastifyInstance) => {
   app.get('/get/:key', getKeyRoute)
   app.post('/set/:key', setKeyRoute)
   app.delete('/delete/:key', deleteKeyRoute)
-  app.delete('/bulkDelete/:keys', bulkDeleteKeyRoute)
+  app.delete('/bulkDelete', bulkDeleteKeyRoute)
 }
 
 app.register(apiRouter, {
